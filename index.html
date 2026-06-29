@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMK - Лучшее УБТ для СНГ стран</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0D0D0D;
+  --navy:#1A2B4A;
+  --mid:#5A5A5A;
+  --light:#B0B0B0;
+  --rule:#E2E2E2;
+  --white:#FFFFFF;
+  --bg:#FAFAF8;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--white);
+  color:var(--black);
+  font-family:'Inter',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 60px;height:68px;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:20px;font-weight:700;
+  letter-spacing:0.18em;color:var(--black);text-transform:uppercase;
+}
+.nav-right{display:flex;align-items:center;gap:40px}
+.nav-link{
+  font-size:13px;font-weight:500;letter-spacing:0.06em;
+  color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color .2s;
+}
+.nav-link:hover{color:var(--black)}
+.nav-cta{
+  font-size:13px;font-weight:600;letter-spacing:0.08em;
+  color:var(--white);background:var(--black);
+  padding:11px 24px;text-decoration:none;text-transform:uppercase;
+  transition:background .2s,color .2s;
+}
+.nav-cta:hover{background:var(--navy)}
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:120px 60px 80px;border-bottom:1px solid var(--rule);
+}
+.hero-eyebrow{
+  font-size:11px;font-weight:600;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--light);margin-bottom:36px;
+  display:flex;align-items:center;gap:16px;
+}
+.hero-eyebrow::before{content:'';display:inline-block;width:40px;height:1px;background:var(--light)}
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,8vw,108px);font-weight:700;
+  line-height:0.95;letter-spacing:-0.02em;color:var(--black);max-width:900px;margin-bottom:48px;
+}
+.hero-h1 em{font-style:italic;color:var(--navy)}
+.hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.hero-desc{font-size:17px;font-weight:300;color:var(--mid);line-height:1.75;max-width:420px}
+.hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--black);color:var(--white);padding:16px 36px;text-decoration:none;
+  font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:background .2s;
+}
+.btn-primary:hover{background:var(--navy)}
+.btn-text{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .2s;
+}
+.btn-text:hover{color:var(--black)}
+.btn-text::after{content:'→';transition:transform .2s}
+.btn-text:hover::after{transform:translateX(4px)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--rule)}
+.stat-cell{padding:48px 60px;border-right:1px solid var(--rule)}
+.stat-cell:last-child{border-right:none}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:52px;font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--black);margin-bottom:8px;
+}
+.stat-num sup{font-size:24px;vertical-align:super}
+.stat-lbl{font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--light)}
+.section{padding:100px 60px;border-bottom:1px solid var(--rule)}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-header{display:flex;align-items:flex-start;justify-content:space-between;gap:60px;margin-bottom:72px}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);padding-top:6px;min-width:160px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,54px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;color:var(--black);max-width:640px}
+.section-title em{font-style:italic;color:var(--navy)}
+.section-sub{font-size:16px;font-weight:300;color:var(--mid);line-height:1.75;max-width:480px;margin-top:20px}
+.feat-table{width:100%;border-collapse:collapse}
+.feat-table tr{border-top:1px solid var(--rule)}
+.feat-table tr:last-child{border-bottom:1px solid var(--rule)}
+.feat-table td{padding:28px 0;vertical-align:top}
+.feat-table td:first-child{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--light);width:200px;padding-right:40px;padding-top:31px}
+.feat-table td:nth-child(2){font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--black);width:280px;padding-right:40px}
+.feat-table td:last-child{font-size:14px;font-weight:300;color:var(--mid);line-height:1.75}
+.platforms-list{display:flex;flex-direction:column;border-top:1px solid var(--rule)}
+.platform-row{display:flex;align-items:center;justify-content:space-between;padding:32px 0;border-bottom:1px solid var(--rule);transition:padding-left .3s}
+.platform-row:hover{padding-left:16px}
+.platform-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:500;color:var(--black)}
+.platform-meta{font-size:13px;color:var(--light);letter-spacing:0.06em;text-transform:uppercase}
+.platform-arr{font-size:20px;color:var(--rule);transition:color .3s}
+.platform-row:hover .platform-arr{color:var(--black)}
+.aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule)}
+.aud-card{background:var(--white);padding:52px 48px}
+.aud-age{font-family:'Playfair Display',serif;font-size:72px;font-weight:700;line-height:1;color:var(--black);margin-bottom:20px}
+.aud-desc{font-size:14px;font-weight:300;color:var(--mid);line-height:1.75;max-width:320px}
+.aud-card.no-go{background:var(--bg)}
+.aud-card.no-go .aud-age{color:var(--rule);font-size:48px;font-style:italic;font-family:'Playfair Display',serif}
+.no-label{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--light);margin-bottom:16px}
+.guarantee-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.g-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.g-list li{display:flex;align-items:flex-start;gap:24px;padding:24px 0;border-bottom:1px solid var(--rule);font-size:15px;font-weight:300;color:var(--mid);line-height:1.6}
+.g-list li:first-child{border-top:1px solid var(--rule)}
+.g-num{font-family:'Playfair Display',serif;font-size:13px;color:var(--rule);min-width:20px;padding-top:2px}
+.g-right{display:flex;flex-direction:column;gap:32px}
+.g-stat{padding:36px 40px;border:1px solid var(--rule)}
+.g-stat .big{font-family:'Playfair Display',serif;font-size:56px;font-weight:700;line-height:1;color:var(--black);margin-bottom:10px}
+.g-stat .lbl{font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--light)}
+.g-tg-btn{display:flex;align-items:center;justify-content:center;gap:12px;padding:20px;background:var(--navy);color:var(--white);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:background .2s}
+.g-tg-btn:hover{background:var(--black)}
+
+/* CASES — статичные карточки */
+.cases-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:2px;background:var(--rule);
+}
+.case-card{background:var(--white);display:flex;flex-direction:column}
+.case-img-wrap{
+  aspect-ratio:4/3;background:var(--bg);
+  position:relative;overflow:hidden;
+}
+.case-img-wrap img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.case-img-placeholder{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:100%;height:100%;gap:10px;color:var(--rule);
+  font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  position:absolute;inset:0;
+}
+.case-img-placeholder .ph-icon{font-size:28px}
+.case-body{padding:28px 32px 36px;flex:1;display:flex;flex-direction:column;gap:10px}
+.case-tag{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--light)}
+.case-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;color:var(--black);line-height:1.4}
+.case-geo{font-size:12px;font-weight:400;color:var(--light);letter-spacing:0.06em;text-transform:uppercase}
+
+/* CASES TG BLOCK */
+.cases-tg-block{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:48px;flex-wrap:wrap;
+  padding:64px 72px;
+  border:1px solid var(--rule);
+}
+.cases-tg-label{
+  font-size:11px;font-weight:600;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--light);margin-bottom:20px;
+}
+.cases-tg-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,3vw,44px);font-weight:700;
+  line-height:1.05;letter-spacing:-0.02em;
+  color:var(--black);margin-bottom:16px;
+}
+.cases-tg-desc{
+  font-size:14px;font-weight:300;color:var(--mid);line-height:1.75;max-width:360px;
+}
+.cases-tg-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--black);color:var(--white);
+  padding:18px 40px;text-decoration:none;white-space:nowrap;
+  font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  transition:background .2s;flex-shrink:0;
+}
+.cases-tg-btn:hover{background:var(--navy)}
+@media(max-width:700px){
+  .cases-tg-block{padding:40px 28px;flex-direction:column;align-items:flex-start}
+}
+
+.cta-section{padding:120px 60px;text-align:center;background:var(--black)}
+.cta-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:32px}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,80px);font-weight:700;line-height:1;letter-spacing:-0.02em;color:var(--white);margin-bottom:20px}
+.cta-title em{font-style:italic;color:rgba(255,255,255,0.45)}
+.cta-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,0.45);margin-bottom:56px}
+.cta-btn{display:inline-flex;align-items:center;gap:14px;background:var(--white);color:var(--black);padding:20px 48px;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background .2s,color .2s}
+.cta-btn:hover{background:rgba(255,255,255,0.88)}
+footer{display:flex;align-items:center;justify-content:space-between;padding:32px 60px;flex-wrap:wrap;gap:16px;border-top:1px solid var(--rule)}
+.foot-logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;letter-spacing:0.16em;color:var(--black)}
+.foot-copy{font-size:12px;color:var(--light)}
+.foot-tg{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--navy);padding-bottom:2px;transition:opacity .2s}
+.foot-tg:hover{opacity:.65}
+.float-btn{position:fixed;bottom:36px;right:36px;z-index:200;background:var(--black);color:var(--white);display:flex;align-items:center;gap:10px;padding:14px 24px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 8px 32px rgba(0,0,0,0.18);transition:background .2s}
+.float-btn:hover{background:var(--navy)}
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .hero{padding:100px 24px 60px}
+  .hero-h1{font-size:clamp(40px,10vw,72px)}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .stat-cell{padding:32px 24px;border-right:none;border-bottom:1px solid var(--rule)}
+  .stat-cell:nth-child(odd){border-right:1px solid var(--rule)}
+  .section{padding:72px 24px}
+  .section-header{flex-direction:column;gap:24px}
+  .aud-grid{grid-template-columns:1fr}
+  .guarantee-grid{grid-template-columns:1fr;gap:48px}
+  .cta-section{padding:80px 24px}
+  footer{flex-direction:column;padding:28px 24px;text-align:center}
+  .float-btn{bottom:20px;right:20px;padding:12px 18px}
+  .nav-right .nav-link{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">MMK</div>
+  <div class="nav-right">
+    <a href="#about" class="nav-link">О нас</a>
+    <a href="#cases" class="nav-link">Кейсы</a>
+    <a href="#guarantee" class="nav-link">Гарантии</a>
+    <a href="https://t.me/BkKOudYCKZMgPmwZrXfP" target="_blank" class="nav-cta">Заказать трафик</a>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-eyebrow">Команда профессионалов — 10 трафферов</div>
+  <h1 class="hero-h1">Чистый<br><em>УБТ трафик</em><br>по СНГ</h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">TikTok, Instagram Reels, YouTube Shorts. Реальная аудитория, 98% стран СНГ, объёмы от 100+ ПДП. Гарантируем результат - или делаем манибек</p>
+    <div class="hero-actions">
+      <a href="https://t.me/BkKOudYCKZMgPmwZrXfP" target="_blank" class="btn-primary">Написать менеджеру</a>
+      <a href="#cases" class="btn-text">Смотреть кейсы</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-cell">
+    <div class="stat-num">100<sup>+</sup></div>
+    <div class="stat-lbl">ПДП в день</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">98<sup>%</sup></div>
+    <div class="stat-lbl">Охват СНГ</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">10</div>
+    <div class="stat-lbl">Трафферов в команде</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-num">3</div>
+    <div class="stat-lbl">Платформы</div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">О нас</div>
+      <div>
+        <h2 class="section-title">Что такое <em>MMK</em></h2>
+        <p class="section-sub">Опытная команда трафферов. Работаем исключительно с органическим трафиком через короткие качественные крео</p>
+      </div>
+    </div>
+    <table class="feat-table">
+      <tr>
+        <td>01</td>
+        <td>Чистый УБТ</td>
+        <td>Только живая органическая аудитория. Каждый переход - реальный человек из вашей целевой аудитории. Никаких накруток и покупного трафика.</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>Аккаунты по запросу</td>
+        <td>Предоставляем готовые аккаунты на всех трех платформах.</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>Гарантия возврата</td>
+        <td>Если трафик окажется нечистым — возвращаем деньги полностью.</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>Объём и стабильность</td>
+        <td>Стабильно от 100+ ПДП ежедневно. Команда из 10 проверенных тим лидов обеспечивает бесперебойный поток без провалов и задержек.</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Источники</div>
+      <div>
+        <h2 class="section-title">Где мы<br><em>работаем</em></h2>
+      </div>
+    </div>
+    <div class="platforms-list">
+      <div class="platform-row">
+        <div>
+          <div class="platform-name">TikTok</div>
+          <div class="platform-meta" style="margin-top:6px">Короткий формат, большие объёмы — низкие цены за ПДП</div>
+        </div>
+        <div class="platform-arr">→</div>
+      </div>
+      <div class="platform-row">
+        <div>
+          <div class="platform-name">Instagram Reels</div>
+          <div class="platform-meta" style="margin-top:6px">Взрослая аудитория, средние объёмы — средние цены</div>
+        </div>
+        <div class="platform-arr">→</div>
+      </div>
+      <div class="platform-row">
+        <div>
+          <div class="platform-name">YouTube Shorts</div>
+          <div class="platform-meta" style="margin-top:6px">Долгосрочный платёжеспособный трафик — высокие цены</div>
+        </div>
+        <div class="platform-arr">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Аудитория</div>
+      <div>
+        <h2 class="section-title">С кем<br><em>работаем</em></h2>
+        <p class="section-sub">Два проверенных сегмента с высокой конверсией. Точная настройка под ваш оффер.</p>
+      </div>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-card">
+        <div class="aud-age">16–18</div>
+        <p class="aud-desc">Молодая, активная аудитория подвязанная быстрым коротким контентом. Импульсивные решения, быстрые действия.</p>
+      </div>
+      <div class="aud-card">
+        <div class="aud-age">25+</div>
+        <p class="aud-desc">Платёжеспособная, осознанная аудитория. Выше средний чек, лучшая конверсия в деньги, долгосрочная ценность.</p>
+      </div>
+      <div class="aud-card no-go" style="grid-column:1/-1;padding:36px 48px;display:flex;align-items:center;gap:48px">
+        <div>
+          <div class="no-label">Не работаем</div>
+          <div class="aud-age" style="font-size:36px;margin-bottom:8px">ЖЦА</div>
+        </div>
+        <p class="aud-desc" style="max-width:480px">Аудитория женщин - не наша область. Работаем только с теми сегментами, где гарантируем результат.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="guarantee">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Гарантии</div>
+      <div>
+        <h2 class="section-title">Наши<br><em>обязательства</em></h2>
+      </div>
+    </div>
+    <div class="guarantee-grid">
+      <ul class="g-list">
+        <li><span class="g-num">I</span><span>Только органический УБТ трафик - никаких ботов, никаких накруток</span></li>
+        <li><span class="g-num">II</span><span>Полный возврат средств, если трафик не соответствует условиям договоренности</span></li>
+        <li><span class="g-num">III</span><span>Аккаунты по запросу - готовы показывать первоисточники трафика</span></li>
+        <li><span class="g-num">IV</span><span>Гибкая настройка под ваш оффер, берем боты, сайты, каналы, переходники</span></li>
+        <li><span class="g-num">V</span><span>Стабильный ежедневный объем от 100 ПДП без провалов</span></li>
+        <li><span class="g-num">VI</span><span>Быстрый старт - запускаемся сразу после согласования условий</span></li>
+      </ul>
+      <div class="g-right">
+        <div class="g-stat">
+          <div class="big">100%</div>
+          <div class="lbl">Гарантия возврата при нечистом трафике</div>
+        </div>
+        <div class="g-stat">
+          <div class="big">98%</div>
+          <div class="lbl">Охват стран СНГ</div>
+        </div>
+        <a href="https://t.me/BkKOudYCKZMgPmwZrXfP" target="_blank" class="g-tg-btn">Обсудить условия в Telegram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cases">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Кейсы</div>
+      <div>
+        <h2 class="section-title">Наши<br><em>результаты</em></h2>
+        <p class="section-sub">Реальные кейсы с цифрами, гео и тематиками - в нашем Telegram-канале. Заходи и смотри сам.</p>
+      </div>
+    </div>
+    <div class="cases-tg-block">
+      <div class="cases-tg-left">
+        <div class="cases-tg-label">Telegram-канал</div>
+        <div class="cases-tg-title">Все кейсы<br>в одном месте</div>
+        <div class="cases-tg-desc">Публикуем результаты, скриншоты и статистику а также примеры пдп.</div>
+      </div>
+      <a href="https://t.me/repundkreo" target="_blank" class="cases-tg-btn">
+        Смотреть кейсы →
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-eyebrow">Заказать трафик</div>
+  <h2 class="cta-title">Готовы<br><em>стартовать?</em></h2>
+  <p class="cta-sub">Напишите нашему менеджеру — обсудим объёмы, ЦА и гео.</p>
+  <a href="https://t.me/BkKOudYCKZMgPmwZrXfP" target="_blank" class="cta-btn">Написать в Telegram →</a>
+</section>
+
+<footer>
+  <div class="foot-logo">MMK</div>
+  <p class="foot-copy"></p>
+  <a href="https://t.me/BkKOudYCKZMgPmwZrXfP" target="_blank" class="foot-tg">Telegram менеджера →</a>
+</footer>
+
+<a href="https://t.me/BkKOudYCKZMgPmwZrXfP" target="_blank" class="float-btn">✈ Написать менеджеру</a>
+
+</body>
+</html>
